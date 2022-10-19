@@ -35,7 +35,7 @@ export const allProjects = `
 }`;
 
 export const allPosts = `
-  "posts": *[_type in ["post"]] | order(_createdAt asc) {
+  *[_type in ["post"]] | order(_createdAt asc) {
     _id, _type, "slug": slug.current, title, publishedAt,
   }
 `;
