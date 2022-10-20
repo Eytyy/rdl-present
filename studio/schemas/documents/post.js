@@ -23,10 +23,10 @@ export default {
       options: { hotspot: true },
     },
     {
-      name: 'categories',
-      title: 'Categories',
+      name: 'tags',
+      title: 'Tags',
       type: 'array',
-      of: [{ type: 'reference', to: { type: 'category' } }],
+      of: [{ type: 'reference', to: { type: 'tag' } }],
     },
     { name: 'publishedAt', title: 'Published at', type: 'datetime' },
     { name: 'body', title: 'Body', type: 'blockContent' },

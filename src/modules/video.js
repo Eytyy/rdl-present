@@ -1,4 +1,3 @@
-/** @jsxImportSource theme-ui */
 import { CgMaximize } from 'react-icons/cg';
 import { useRef, useEffect, useReducer } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -44,7 +43,7 @@ export default function VideoModule({
   const video = useRef(null);
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const { ref, inView } = useInView({ threshold: 1 });
+  const { ref, inView } = useInView({ threshold: 0 });
 
   const { interacted, playing, ended, loaded } = state;
 
@@ -96,7 +95,7 @@ export default function VideoModule({
   }
 
   return (
-    <div ref={ref} sx={{ height: '100%', overflow: 'hidden' }}>
+    <div ref={ref} style={{ height: '100%', overflow: 'hidden' }}>
       {!loaded && <Loader />}
       <video
         onLoadedData={onLoaded}
@@ -106,7 +105,13 @@ export default function VideoModule({
         onEnded={onEnded}
         ref={video}
         src={url}
-        sx={{ variant: 'video.default' }}
+        controls
+        style={{
+          width: 'auto',
+          height: '100%',
+          display: 'block',
+          margin: '0 auto',
+        }}
         autoPlay
         playsInline
         muted
@@ -149,17 +154,17 @@ function Controls({
       <div sx={{ variant: 'video.controls.bottom' }}>
         {loaded ? (
           <motion.div
-            sx={{ display: 'flex', gap: 4, pt: 2 }}
+            style={{ display: 'flex', gap: 4, pt: 2 }}
             animate={{ y: '100%', transition: { duration: 1 } }}
           >
             {!playing && (
               <Btn onClick={play}>
-                <span sx={{ fontSize: 1 }}>PLAY</span>
+                <span style={{ fontSize: 1 }}>PLAY</span>
               </Btn>
             )}
             {playing && (
               <Btn onClick={stop}>
-                <span sx={{ fontSize: 1 }}>STOP</span>
+                <span style={{ fontSize: 1 }}>STOP</span>
               </Btn>
             )}
           </motion.div>

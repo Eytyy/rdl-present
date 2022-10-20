@@ -1,7 +1,10 @@
+import { MdOutlineMood } from 'react-icons/md';
+
 export default {
   name: 'author',
   title: 'Author',
   type: 'document',
+  icon: MdOutlineMood,
   fields: [
     { name: 'name', title: 'Name', type: 'string' },
     {

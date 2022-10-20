@@ -3,15 +3,18 @@ import ContentModule from './content';
 import ImageModule from './image';
 import VideoModule from './video';
 
-export default function Module({ image, _type, inView, ...props }) {
+function renderModule({ _type, ...props }) {
   switch (_type) {
     case 'imageModule':
-      return <ImageModule image={image} />;
+      return <ImageModule image={props.image} />;
     case 'videoModule':
-      return <VideoModule {...props} inView={inView} />;
+      return <VideoModule {...props.video} />;
     case 'contentModule':
-      return <ContentModule {...props} inView={inView} />;
+      return <ContentModule {...props} />;
     default:
       return <div>Unsupported Module</div>;
   }
+}
+export default function Module({ _type, ...props }) {
+  return <div>{renderModule({ _type, ...props })}</div>;
 }
