@@ -1,4 +1,4 @@
-import React from 'react';
+/** @jsxImportSource theme-ui */
 import { PortableText } from '@portabletext/react';
 import myPortableTextComponents from '@lib/portablet-text-component';
 
@@ -7,12 +7,12 @@ export default function Post({ title, body, ...props }) {
   return (
     <article>
       <header>
-        <h1>{title}</h1>
-        <PortableText
-          value={body}
-          components={myPortableTextComponents}
-        />
+        <h1 sx={{ variant: 'text.pageTitle' }}>{title}</h1>
       </header>
+      <PortableText
+        value={body}
+        components={myPortableTextComponents}
+      />
     </article>
   );
 }

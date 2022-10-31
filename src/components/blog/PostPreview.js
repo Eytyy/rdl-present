@@ -1,5 +1,5 @@
+/** @jsxImportSource theme-ui */
 import Link from 'next/link';
-import React from 'react';
 
 export default function PostPreview({
   title,
@@ -10,10 +10,12 @@ export default function PostPreview({
 }) {
   return (
     <div>
-      <div>
-        Published on {publishedAt} by {author.name}
+      <div sx={{ variant: 'text.smallText' }}>
+        On: {publishedAt}
+        <br />
+        By: {author.name}
       </div>
-      <h2>
+      <h2 sx={{ variant: 'text.previewHeadline' }}>
         <Link href={`/blog/${slug}`}>{title}</Link>
       </h2>
     </div>

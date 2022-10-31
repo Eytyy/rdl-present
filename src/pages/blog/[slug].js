@@ -4,11 +4,7 @@ import { getClient } from '@lib/sanity.server';
 import React from 'react';
 
 export default function PostPage({ data }) {
-  return (
-    <>
-      <Post {...data.page} />
-    </>
-  );
+  return <Post {...data.page} />;
 }
 
 export async function getStaticPaths() {

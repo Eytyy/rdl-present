@@ -6,9 +6,11 @@ import VideoModule from './video';
 function renderModule({ _type, ...props }) {
   switch (_type) {
     case 'imageModule':
-      return <ImageModule image={props.image} />;
+      return (
+        <ImageModule image={props.image} format={props.format} />
+      );
     case 'videoModule':
-      return <VideoModule {...props.video} />;
+      return <VideoModule {...props.video} format={props.format} />;
     case 'contentModule':
       return <ContentModule {...props} />;
     default:

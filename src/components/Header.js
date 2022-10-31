@@ -1,9 +1,10 @@
+/** @jsxImportSource theme-ui */
 import Link from 'next/link';
 import React from 'react';
 
 export default function Header({ menu }) {
   return (
-    <header style={{ padding: '62px' }}>
+    <header sx={{ variant: 'layout.left.top' }}>
       <MainMenu items={menu.items} />
     </header>
   );
@@ -11,7 +12,9 @@ export default function Header({ menu }) {
 
 function MainMenu({ items }) {
   return (
-    <nav style={{ display: 'flex', gap: '24px' }}>
+    <nav
+      sx={{ display: 'flex', flexDirection: 'column', gap: '24px' }}
+    >
       {items.map((item) => (
         <DLink key={item._key} {...item} />
       ))}
@@ -34,7 +37,7 @@ function PLink({ title, url, type }) {
   const href = type === 'home' ? '/' : `/${url}`;
   return (
     <Link href={href} passHref>
-      <a>{title}</a>
+      <a sx={{ variant: 'link' }}>{title}</a>
     </Link>
   );
 }

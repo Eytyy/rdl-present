@@ -1,16 +1,19 @@
-import React from 'react';
+/** @jsxImportSource theme-ui */
 import PostPreview from './PostPreview';
 
 export default function Blog({ page, content }) {
   return (
     <section>
-      <header>
-        <h1>{page.title}</h1>
+      <header sx={{ variant: 'page.header' }}>
+        <h1 sx={{ variant: 'text.pageTitle' }}>{page.title}</h1>
       </header>
       <main>
-        {content.map((post) => (
-          <PostPreview key={post._id} {...post} />
-        ))}
+        <div sx={{ variant: 'list' }}>
+          <h2 sx={{ variant: 'text.sectionTitle' }}>List</h2>
+          {content.map((post) => (
+            <PostPreview key={post._id} {...post} />
+          ))}
+        </div>
       </main>
     </section>
   );

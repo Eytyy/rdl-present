@@ -1,11 +1,11 @@
-import React from 'react';
+/** @jsxImportSource theme-ui */
 import Header from './Header';
 
 export default function Layout({ children, data }) {
   return (
-    <section>
+    <section sx={{ variant: 'layout' }}>
       <Header menu={data.mainMenu} />
-      <main style={{ padding: '0px 62px' }}>{children}</main>
+      <main>{children}</main>
     </section>
   );
 }

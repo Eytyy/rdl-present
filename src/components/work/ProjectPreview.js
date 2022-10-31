@@ -1,6 +1,12 @@
+/** @jsxImportSource theme-ui */
 import Link from 'next/link';
-import React from 'react';
 
 export default function ProjectPreview({ title, slug }) {
-  return <Link href={`/work/${slug}`}>{title}</Link>;
+  return (
+    <article>
+      <h2 sx={{ variant: 'text.previewHeadline' }}>
+        <Link href={`/work/${slug}`}>{title}</Link>
+      </h2>
+    </article>
+  );
 }
